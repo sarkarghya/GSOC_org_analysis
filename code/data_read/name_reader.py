@@ -8,4 +8,5 @@ directory = f'./code/orgs-{date.today() - timedelta(days = 1)}/' # edit date dif
 for file in os.listdir(directory):
     file_path = os.path.join(directory, file)
     with open(file_path, 'rb') as datfile:
-        print(pk.load(datfile))
+        dic = pk.load(datfile)
+        print(dic['name'])
