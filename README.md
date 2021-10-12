@@ -80,3 +80,43 @@ I used Python 3 with libraries of Selenium and BeautifulSoup4. My project does n
 ![Alt text](https://cdn-images-1.medium.com/max/800/1*-JzUGdCGSp9uRTOSsHLwWA.png)
 
 Then we notice that URLs for the organization sub pages can be derived from the organization's ID. First saving this list of Organisation IDs into a variable and then using it to iterate over rest of the URLs, saves us computational time and makes our code efficient.
+
+## Tinkering
+This is code and you can tinker with it in any way you like. I have saved quite a few .dat files for you to play around. 
+### Playing around with existing data
+If you would like to filter your organisation according to interests (which was clearly out of scope for this article). You can do so with the data_read file in the code section. I have laid a couple of examples with which you could possibly play around.
+Steps you need to follow
+1. Clone the entire repository
+2. Change the time delta i.e. ```days = ```number of day difference with the folder of .dat files in our case, in our case ```code\orgs-2021–10–05```
+```
+direct = f"./code/orgs-{date.today() - timedelta(days = 7)}/"  
+```
+### Data structure
+Each .dat file stores a dictionary. The dictionary keys are:
+```
+'name', 'tech', 'org_type', 'org_topics', 'num_students', 'students'
+```
+The objects stored in these keys are of types:
+```
+<class 'str'>, <class 'list'>, <class 'str'>, <class 'list'>, <class 'int'>, <class 'list'>
+```
+Additionally the last list contains a list of lists with student name, project, URL in the same order. So you can directly view projects that sound interesting directly from your IDE.
+### Data for years other than 2021
+The way the GSoC website is presented will most probably remain same and has remained same for a couple of years. This very good news because you can probably do similar analysis for other years.
+You just need to make a minor change in this file i.e. ```/code/main.py``` changing the url parameter to:
+```
+https://summerofcode.withgoogle.com/archive/2020/organizations/
+or to one of the following:
+https://summerofcode.withgoogle.com/archive/2019/organizations/
+https://summerofcode.withgoogle.com/archive/2018/organizations/
+https://summerofcode.withgoogle.com/archive/2017/organizations/
+https://summerofcode.withgoogle.com/archive/2016/organizations/
+```
+Pretty cool eh!
+
+You can now do multi-analysis and yeah that is an overkill for anyone to choose an organisation.
+
+## Concluding remarks
+Hope this article helped you make better decision regarding the GSoC organisation you choose. Best of luck with your proposals!
+
+Incase you use my project, I would appreciate if you cite it.
